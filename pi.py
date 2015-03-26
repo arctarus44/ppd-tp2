@@ -1,3 +1,4 @@
+import os
 import sys
 
 if __name__ == "__main__":
@@ -5,12 +6,12 @@ if __name__ == "__main__":
 		# reserver les ressources et lancer le script
 		pass
 	else:
-		start = int(sys.argv[1])
-		end = int(sys.argv[2])
-		slice = sys.argv[3]
+		slice = sys.argv[1]
+		start = int(sys.argv[2])
+		end = int(sys.argv[3])
 		res = 0
 		for k in range(start, end):
 			res += ((-1) ** k)/(2 * k + 1)
-		f = open("slice_" +slice, 'w')
+		f = open(os.path.join(os.getcwd(), "slice_" + slice)  , 'w')
 		f.write(str(res))
 		f.close()

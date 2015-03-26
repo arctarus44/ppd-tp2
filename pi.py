@@ -9,6 +9,6 @@ if __name__ == "__main__":
 	for k in range(start, end):
 		res += (pow((-1), k))/((2 * k + 1)+0.0)
 	#f = open(os.path.join(os.getcwd(), "slice_" + task)  , 'w')
-	f = open("~/ppd-tp2/slice_" + task , 'w')
+	f = open("/home/adewarumez/ppd-tp2/slice_" + task , 'w')
 	f.write(str(res))
 	f.close()

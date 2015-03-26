@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
 	i = 0
 	for m in machines[:-1]:
- 		p[i] = subp.Popen(["oarsh", m, "python", SCRIPT_PI, str(i), str(borne_min), str(borne_max)])
+ 		p[i] = subp.Popen(["oarsh", m, "python " +  SCRIPT_PI + " "+ str(i) +" " +  str(borne_min) + " " + str(borne_max)])
 		i+=1
 		borne_min=borne_max
 		borne_max=borne_max+intervalle
@@ -31,13 +31,13 @@ if __name__ == "__main__":
 	for i in range(0, nb_machines):
 		p[i].wait()
 
-	files = [f for f in os.listdir('~/') if re.match(r'slice_[0-9]*', f)]
+	files = [f for f in os.listdir('/home/adewarumez/ppd-tp2/') if re.match(r'slice_[0-9]*', f)]
 	result = 0
 	for f in files:
 		print f
-		file = open(f)
-		result += eval(file.read())
-		file.close()
+		slicefile = open(f)
+		result += eval(slicefile.read())
+		slicefile.close()
 
 	resultf = open("result.txt", 'w')
 	resultf.write(str(result * 4))

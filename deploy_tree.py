@@ -44,8 +44,9 @@ if __name__ == "__main__":
 	else:
 		machine_file = open("/home/adewarumez/ppd-tp2/machines.txt", 'r')
 		data = machine_file.read()
-		print "data " + data
-		machines = re.split("\n", data)
+		machines = re.split("\n", data)[:-2]
+		nb_machines = len(machines)
+		print "nb_machines = " + str(nb_machines)
 		print "machine lu fichier " + str(machines)
 
 	intervalle = int(BORNE_MAX / nb_machines)
